@@ -1,0 +1,2 @@
+ssh -o ProxyCommand='nc -x access.edison.re.kr:8325 %h %p' \ shan@bulb.edison.re.kr -p 22002
+
