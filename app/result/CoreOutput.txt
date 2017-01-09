@@ -2,10 +2,10 @@ NCA REPORT
 Subject=1
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
-                       Package version 0.2.4 (2016-12-07)
+                       Package version 0.2.6 (2017-01-01)
                           R version 3.3.2 (2016-10-31)
 
-Date and Time: 2016-12-14 11:27:52 KST
+Date and Time: 2017-01-06 17:46:08 NA
 
 Calculation Setting
 -------------------
@@ -79,10 +79,10 @@ NCA REPORT
 Subject=2
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
-                       Package version 0.2.4 (2016-12-07)
+                       Package version 0.2.6 (2017-01-01)
                           R version 3.3.2 (2016-10-31)
 
-Date and Time: 2016-12-14 11:27:52 KST
+Date and Time: 2017-01-06 17:46:08 NA
 
 Calculation Setting
 -------------------
@@ -156,10 +156,10 @@ NCA REPORT
 Subject=3
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
-                       Package version 0.2.4 (2016-12-07)
+                       Package version 0.2.6 (2017-01-01)
                           R version 3.3.2 (2016-10-31)
 
-Date and Time: 2016-12-14 11:27:52 KST
+Date and Time: 2017-01-06 17:46:08 NA
 
 Calculation Setting
 -------------------
@@ -233,10 +233,10 @@ NCA REPORT
 Subject=4
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
-                       Package version 0.2.4 (2016-12-07)
+                       Package version 0.2.6 (2017-01-01)
                           R version 3.3.2 (2016-10-31)
 
-Date and Time: 2016-12-14 11:27:52 KST
+Date and Time: 2017-01-06 17:46:08 NA
 
 Calculation Setting
 -------------------
@@ -310,10 +310,10 @@ NCA REPORT
 Subject=5
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
-                       Package version 0.2.4 (2016-12-07)
+                       Package version 0.2.6 (2017-01-01)
                           R version 3.3.2 (2016-10-31)
 
-Date and Time: 2016-12-14 11:27:52 KST
+Date and Time: 2017-01-06 17:46:08 NA
 
 Calculation Setting
 -------------------
@@ -387,10 +387,10 @@ NCA REPORT
 Subject=6
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
-                       Package version 0.2.4 (2016-12-07)
+                       Package version 0.2.6 (2017-01-01)
                           R version 3.3.2 (2016-10-31)
 
-Date and Time: 2016-12-14 11:27:52 KST
+Date and Time: 2017-01-06 17:46:08 NA
 
 Calculation Setting
 -------------------
@@ -464,10 +464,10 @@ NCA REPORT
 Subject=7
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
-                       Package version 0.2.4 (2016-12-07)
+                       Package version 0.2.6 (2017-01-01)
                           R version 3.3.2 (2016-10-31)
 
-Date and Time: 2016-12-14 11:27:52 KST
+Date and Time: 2017-01-06 17:46:08 NA
 
 Calculation Setting
 -------------------
@@ -541,10 +541,10 @@ NCA REPORT
 Subject=8
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
-                       Package version 0.2.4 (2016-12-07)
+                       Package version 0.2.6 (2017-01-01)
                           R version 3.3.2 (2016-10-31)
 
-Date and Time: 2016-12-14 11:27:52 KST
+Date and Time: 2017-01-06 17:46:09 NA
 
 Calculation Setting
 -------------------
@@ -618,10 +618,10 @@ NCA REPORT
 Subject=9
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
-                       Package version 0.2.4 (2016-12-07)
+                       Package version 0.2.6 (2017-01-01)
                           R version 3.3.2 (2016-10-31)
 
-Date and Time: 2016-12-14 11:27:52 KST
+Date and Time: 2017-01-06 17:46:09 NA
 
 Calculation Setting
 -------------------
@@ -695,10 +695,10 @@ NCA REPORT
 Subject=10
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
-                       Package version 0.2.4 (2016-12-07)
+                       Package version 0.2.6 (2017-01-01)
                           R version 3.3.2 (2016-10-31)
 
-Date and Time: 2016-12-14 11:27:52 KST
+Date and Time: 2017-01-06 17:46:09 NA
 
 Calculation Setting
 -------------------
@@ -772,10 +772,10 @@ NCA REPORT
 Subject=11
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
-                       Package version 0.2.4 (2016-12-07)
+                       Package version 0.2.6 (2017-01-01)
                           R version 3.3.2 (2016-10-31)
 
-Date and Time: 2016-12-14 11:27:52 KST
+Date and Time: 2017-01-06 17:46:09 NA
 
 Calculation Setting
 -------------------
@@ -849,10 +849,10 @@ NCA REPORT
 Subject=12
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
-                       Package version 0.2.4 (2016-12-07)
+                       Package version 0.2.6 (2017-01-01)
                           R version 3.3.2 (2016-10-31)
 
-Date and Time: 2016-12-14 11:27:52 KST
+Date and Time: 2017-01-06 17:46:09 NA
 
 Calculation Setting
 -------------------

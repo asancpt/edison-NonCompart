@@ -1,4 +1,4 @@
-NonCompart-package	NonCompart_0.2.4-package
+NonCompart-package	NonCompart_0.2.6-package
 AUC	AUC
 BestSlope	BestSlope
 IndiNCA	IndiNCA
@@ -7,7 +7,7 @@ Interpol	Interpol
 LinAUC	LinAUC
 LogAUC	LogAUC
 NCA	NCA
-NonCompart	NonCompart_0.2.4-package
+NonCompart	NonCompart_0.2.6-package
 Round	Round
 RptCfg	RptCfg
 Slope	Slope

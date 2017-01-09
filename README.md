@@ -1,3 +1,12 @@
+---
+output:
+  pdf_document:
+    includes:
+      in_header: preamble.tex
+    latex_engine: xelatex
+  html_document: default
+---
+
 # NonCompart, Edison Science App Manual
 
 - Sungpil Han
@@ -13,13 +22,13 @@
 - NonCompart Edison Science App 
 - 개발환경 : R 3.3.2
 
-2017년 1월
-한성필
+2017-01
+Sungpil Han
 
 ## NonCompart Edison
 
-- `Online NonCompart` <https://asan.shinyapps.io/noncompart>
-- `Online NonCompart` is open to everyone. We are happy to take your input. Please fork the repo, modify the codes and submit a pull request. <https://github.com/shanmdphd/noncompart>
+- `NonCompart Edison` <https://www.edison.re.kr/web/cmed/run_simulation>
+- `NonCompart Edison` is open to everyone. We are happy to take your input. Please fork the repo, modify the codes and submit a pull request. <https://github.com/shanmdphd/NonCompartEdison>
 
 ### Installation of NonCompart R Package
 
