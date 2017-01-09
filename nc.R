@@ -3,7 +3,7 @@
 # Library -----------------------------------------------------------------
 
 .libPaths("./lib/")
-MacOSlib = "~/git/edison/NonCompartEdison/app/lib"
+MacOSlib = "~/git/edison/NonCompartEdison/lib"
 install.packages("dplyr", lib = MacOSlib)
 library(NonCompart)
 
