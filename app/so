@@ -1,3 +1,2 @@
 rm -rf result/
-Rscript nc.R -inp input.inp
-
+Rscript nc.R -inp input.txt

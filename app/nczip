@@ -1,2 +1,0 @@
-rm nc.zip
-zip -r nc.zip lib nc.R

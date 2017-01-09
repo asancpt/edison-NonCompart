@@ -1,3 +1,9 @@
+rsconnect.R
+googlesheets.R
+ref/
+lib/
+*.zip
+
 # History files
 .Rhistory
 .Rapp.history

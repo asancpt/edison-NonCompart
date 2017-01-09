@@ -1,17 +1,16 @@
 #!/SYSTEM/R/3.3.2/bin/Rscript
 
-
 # Library -----------------------------------------------------------------
 
 .libPaths("./lib/")
 MacOSlib = "~/git/edison/NonCompartEdison/app/lib"
-#install.packages("NonCompart", lib = MacOSlib)
+install.packages("dplyr", lib = MacOSlib)
 library(NonCompart)
 
 # Argument ----------------------------------------------------------------
 
 # rscript nc.R -inp[1] InputPara.inp[2]
-Args <- c("-inp", "input.inp") # RUN THIS LINE IN R
+Args <- c("-inp", "input.txt") # RUN THIS LINE IN R
 Args <- commandArgs(trailingOnly = TRUE) # SKIP THIS LINE IN R if you're testing!
 if (Args[1] == "-inp") InputParameter <- Args[2] # InputPara.inp
 if (length(Args) > 3){ 
@@ -20,10 +19,10 @@ if (length(Args) > 3){
 
 # Data Input --------------------------------------------------------------
 
-Input <- read.table(InputParameter)
-InputDataset <- Input[1,2] # Data Theoph // Data Indometh ??
-#InputDose <- Input[2,2]
-if (DatasetName == "Theoph") {
+Input <- data.frame(t(read.table(InputParameter, row.names = 1, stringsAsFactors = FALSE)), stringsAsFactors = FALSE)
+Input$Dose <- as.numeric(Input$Dose)
+
+if (Input$Data == "Theoph") {
     Data <- Theoph
     colSubj <- "Subject"
     colTime <- "Time"
@@ -65,4 +64,5 @@ for (i in 1:nID) {
 
 write.csv(Data, "result/out.csv", quote=FALSE, row.names=FALSE)
 writeLines(Output, paste0("result/result.oneD"))
-writeLines(NCA(Data, colSubj, colTime, colConc, Dose=320, Report="Text"), "result/CoreOutput.txt")
+writeLines(NCA(Data, colSubj, colTime, colConc, Method = Input$Log, AdmMode = Input$AdmMode, 
+               Dose=Input$Dose, Report="Text"), "result/CoreOutput.txt")
