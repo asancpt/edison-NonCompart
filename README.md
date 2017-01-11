@@ -1,10 +1,10 @@
 ---
 output:
+  html_document: default
   pdf_document:
     includes:
       in_header: preamble.tex
     latex_engine: xelatex
-  html_document: default
 ---
 
 # NonCompart, Edison Science App Manual
