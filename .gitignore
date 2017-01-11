@@ -7,6 +7,7 @@ lib/
 css/
 *.zip
 result/
+c.R
 
 # History files
 .Rhistory

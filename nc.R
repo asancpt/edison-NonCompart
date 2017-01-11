@@ -2,20 +2,15 @@
 
 # Library -----------------------------------------------------------------
 
-.libPaths("./lib/")
-MacOSlib = "~/git/edison/NonCompartEdison/lib"
-install.packages("dplyr", lib = MacOSlib)
-library(NonCompart)
+localLibPath <- "./lib"
+.libPaths(localLibPath)
+mylib <- c("NonCompart", "dplyr", "ggplot2", "dplyr", "markdown", "knitr", "tibble")
+lapply(mylib, library, character.only = TRUE) # if needed # install.packages(mylib, lib = localLibPath)
 
 # Argument ----------------------------------------------------------------
 
-# rscript nc.R -inp[1] InputPara.inp[2]
-Args <- c("-inp", "input.txt") # RUN THIS LINE IN R
 Args <- commandArgs(trailingOnly = TRUE) # SKIP THIS LINE IN R if you're testing!
-if (Args[1] == "-inp") InputParameter <- Args[2] # InputPara.inp
-if (length(Args) > 3){ 
-    InputData <- Args[4]
-}
+if (identical(Args, character(0))) Args <- c("-inp", "input.deck")
 
 # Data Input --------------------------------------------------------------
 
