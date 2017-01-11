@@ -1,8 +1,12 @@
 rsconnect.R
 googlesheets.R
+s00431-015-2581-x-Caffeine.pdf
+blog/
 ref/
 lib/
+css/
 *.zip
+result/
 
 # History files
 .Rhistory
