@@ -1,2 +1,0 @@
-rm -rf result/
-Rscript nc.R -inp input.txt

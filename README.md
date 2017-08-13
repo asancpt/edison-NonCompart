@@ -10,19 +10,18 @@ output:
 # NonCompart, Edison Science App Manual
 
 - Sungpil Han
-- 2017-01-06
 - http://simp.ly/publish/CpFRmg
 
 ## Introduction
 
 이것은 NonCompart, Edison Science App Manual 메뉴얼입니다.
-이 프로그램은 [Github](http://github.com/shanmdphd/edisonNoncompart)에 소스코드가 올려져 있고 공개 프로그램으로 관리됩니다.
+이 프로그램은 [Github](http://github.com/asancpt/edison-NonCompart)에 소스코드가 올려져 있고 공개 프로그램으로 관리됩니다.
 감사합니다.
 
-- NonCompart Edison Science App 
-- 개발환경 : R 3.3.2
+- NonCompart Edison Science App
+- 개발환경 : R 3.4.1
 
-2017-01
+2017-08
 Sungpil Han
 
 ## NonCompart Edison
@@ -65,6 +64,7 @@ NCA(Theoph, "Subject", "Time", "conc", Dose=320)
 - Gibaldi M, Perrier D. Pharmacokinetics 2e revised and expanded. 1982
 
 ### R Packages
+
 - Kyun-Seop Bae (2016). NonCompart: Noncompartmental Analysis of Pharmacokinetics. R package version 0.2.3. https://CRAN.R-project.org/package=NonCompart
 - H. Wickham. ggplot2: Elegant Graphics for Data Analysis. Springer-Verlag New York, 2009.
 - Hadley Wickham. tidyr: Easily Tidy Data with `spread()` and `gather()` Functions. R package version 0.6.0.9000. https://github.com/hadley/tidyr

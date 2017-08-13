@@ -1,0 +1,27 @@
+---
+title: "Comprehensive Noncompartmental Analysis of Pharmacokinetic Data to Acquire CDISC Standardized Parameters"
+author: ["Sungpil Han", "Seok Kyu Yoon", "Kyun-Seop Bae"]
+date: "`r Sys.Date()`"
+knit: "bookdown::render_book"
+documentclass: book
+bibliography: "reference.bib"
+link-citations: true
+site: bookdown::bookdown_site
+description: "ncar R package"
+graphics: yes
+url: 'http\://asancpt.github.io/ncar/docs'
+github-repo: asancpt/ncar
+#cover-image: images/cover.png
+---
+
+```{r include = FALSE}
+library(knitr)
+library(dplyr)
+```
+
+# Preface {-}
+
+In this book, we will cover R Packages for Noncompartmental Analysis. 
+
+![Book cover](cover.jpeg)
+

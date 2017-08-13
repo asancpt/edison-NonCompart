@@ -1,4 +1,0 @@
-Data Indometh
-Dose 100
-Log Log
-AdmMode Extravascular

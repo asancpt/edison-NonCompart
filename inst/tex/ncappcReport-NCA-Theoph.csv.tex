@@ -1,0 +1,206 @@
+\documentclass[pdflatex, a4paper, 11pt]{article}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\usepackage{booktabs, longtable, adjustbox, array, enumerate, mathtools, fancyhdr, graphicx, fancybox, amsmath, lscape, caption}
+\usepackage[hmargin=2.5cm,vmargin=3.5cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[table]{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage[affil-it]{authblk}
+\usepackage{needspace}
+\usepackage{listings}
+\usepackage{inconsolata}
+
+%%% Hyperref and cref settings
+\usepackage[bookmarksnumbered]{hyperref} % hyperlinks
+\hypersetup{colorlinks,breaklinks,
+            urlcolor=blue,%[rgb]{0.29020,0.52157,0.56078},
+            linkcolor=blue,%[rgb]{0.29020,0.52157,0.56078},
+            citecolor=blue,%[rgb]{00.29020,0.52157,0.56078},
+            linktoc=page}
+
+\captionsetup{labelformat=empty}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textbf{Report}}
+\fancyhead[R]{\textit{ncappc}}
+\fancyfoot[C]{\thepage}
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{4pt}}m{#1}}
+\title{\textbf{Report of \textit{ncappc}\textsuperscript{*} package}}
+\author{\vspace{-0cm}}
+\date{\today}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+\raggedright{}
+\maketitle
+\thispagestyle{empty}
+
+\vfill
+\textit{\textsuperscript{*} \textbf{ncappc} package is created and maintained by:}
+\newline
+\textit{Chayan Acharya, Andrew C. Hooker, Siv Jonsson, Mats O. Karlsson}
+\newline
+\textit{Department of Pharmaceutical Biosciences, Uppsala University, Sweden}
+\clearpage
+
+\newpage{}
+\footnotesize
+\tableofcontents
+\thispagestyle{empty}
+\clearpage
+\pagenumbering{arabic}
+
+
+
+\footnotesize
+\section{Summary of the data set and the results}
+
+
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{lstlisting}[basicstyle=\ttfamily,breaklines=true]
+## Name of the file with the observed data: "Theoph.csv"
+## Route of administration: extravascular
+## Dose type: non-steady-state
+## No. of population stratification level: 0
+\end{lstlisting}
+\end{kframe}
+\end{knitrout}
+\paragraph{}
+
+\begin{center}
+\textbf{Summary table}
+
+\input{sum}
+\end{center}
+\paragraph{}
+
+\footnotesize
+\section{Command-line arguments passed to ncappc function}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{lstlisting}[basicstyle=\ttfamily,breaklines=true]
+## ncappc(obsFile = "Theoph.csv", psnOut = FALSE, method = "linear-log", 
+##     evid = FALSE, noPlot = TRUE, printOut = TRUE)
+\end{lstlisting}
+\end{kframe}
+\end{knitrout}
+
+\newpage
+\footnotesize
+\section{Description of the tabular output}
+
+% Figure and Table description in the absence of simulated data
+\begin{sloppypar}
+
+\subsection{Table 1 (ncaOutput.tsv)}
+The \textbf{\textit{ncappc}} functionality produces this table to report the estimated values of the NCA metrics described in the documentation for each individual along with other stratifiers (eg. population group ID, dose ID, etc.) if specified in the input command. The extension "tsv" stands for "tab separated variable", \textit{i.e.}, the columns in this table are separated by tabs. "NaN" or "NA" is produced for the NCA metrics which are irrelevant for the specified data type. Below is an excerpt of selected columns of top 100 rows.
+
+
+\begin{center}
+\textbf{Table 1. ncaOutput.tsv (selected columns of top 100 rows)}
+
+\input{tab}
+\end{center}
+
+% \begin{center}
+% \textbf{Table 1. ncaOutput.tsv (selected columns of top 100 rows)}
+% <<FinalTable, echo=FALSE, results='asis', fig.env="table">>==
+% suppressPackageStartupMessages(require(xtable))
+% tab <- list()
+% cnum <- seq(1,ncol(prnTab2),5)
+% for(i in 1:length(cnum)){
+%   iStrt <- cnum[i]; iEnd  <- min(ncol(prnTab2),(cnum[i]+4))
+%   print(xtable(prnTab2[,iStrt:iEnd]), size="tiny", include.rownames=FALSE)
+%   cat('\\clearpage\n')
+% }
+% @
+% \input{tab}
+% \end{center}
+
+\footnotesize
+\subsection{Table 2 (Obs\_Stat.tsv)}
+A set of statistical parameters calculated for the entire population or the stratified population for the mean values of the following NCA metrics estimated from the simulated data: Tmax, Cmax, AUClast, AUClower\_upper, AUCINF\_obs, AUC\_pExtrap\_obs, AUCINF\_pred, AUC\_pExtrap\_pred, AUMClast, AUMCINF\_obs, AUMC\_pExtrap\_obs, AUMCINF\_pred, AUMC\_pExtrap\_pred, HL\_Lambda\_z, Rsq, Rsq\_adjusted, No\_points\_Lambda\_z obtained from the observed data. Brief description of the calculated statistical parameters: \textbf{Ntot} = Total number of data points, \textbf{Nunique} = number of unique data points, \textbf{Min} = minimum value, \textbf{Max} = maximum value, \textbf{Mean} = mean/average value, \textbf{SD} = standard deviation, \textbf{SE} = standard error, \textbf{CVp} = coefficient of variation \%, \textbf{a95CIu} = upper limit of 95\% arithmetic confidence interval, \textbf{a95CIl} = lower limit of 95\% arithmetic confidence interval, \textbf{gMean} = geometric mean, \textbf{gCVp} = geometric coefficient of variation \%.
+
+\newpage
+\section{Description of the graphical output}
+
+\subsection{Figure 1. [Individual level] Concentration \textit{vs.} time profile}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{lstlisting}[basicstyle=\ttfamily,breaklines=true]
+## [1] "No concentration vs time plot is available."
+\end{lstlisting}
+\end{kframe}
+\end{knitrout}
+
+Concentration vs time profile for each individual stratified by dose or population group, if any, as obtained from the observed data. The left panels represent the raw data, while the right panels represent the semi-logarithmic form of the concentration data. Each of the lines represents individual data.
+
+\newpage
+\subsection{Figure 2. [Population level] Histogram of the selected NCA metrics estimated from the observed data}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{lstlisting}[basicstyle=\ttfamily,breaklines=true]
+## No histogram is available as the number of individuals is less than 5 in
+## all population strata!
+\end{lstlisting}
+\end{kframe}
+\end{knitrout}
+
+Histogram of four selected NCA metrics (AUClast, AUCINF\_obs, Cmax, Tmax) estimated from the observed data. The solid blue vertical and dotted lines represent the population mean and the "spread" of the data. The "spread" is defined by 95\% nonparametric prediction interval of the NCA metrics obtained from the observed data.
+
+\end{sloppypar}
+\end{document}
+

@@ -56,5 +56,3 @@ for (i in 1:nID) {
 writeLines(Output, paste0("result/result.oneD"))
 writeLines(NCA(Data, colSubj, colTime, colConc, Dose=320, Report="Text"),
            "result/CoreOutput.txt")
-
-

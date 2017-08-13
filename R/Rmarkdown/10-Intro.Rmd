@@ -1,0 +1,195 @@
+# Introduction
+
+There are growing number of open source noncompartmental analysis R packages and we will compare, review and discuss them.
+
+## In this chapter
+
+We will see what `ncar` [@ncar2017] is and how it works.
+
+## What is `ncar` R package?
+
+Description: Conduct a noncompartmental analysis as closely as possible to the most widely used commercial software for pharmacokinetic analysis, i.e. 'Phoenix(R) WinNonlin(R)' <https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/>.
+
+Some features include:
+    
+1. Use CDISC SDTM PP domain terms.
+2. Automatic slope selection with the same criterion of WinNonlin(R)
+3. Support both 'linear-up linear-down' and 'linear-up log-down' method
+4. Calculate partial(interval) AUC with 'linear' or 'log' interpolation method
+5. Perform a noncompartmental analysis of CDISC standardized pharmacokinetic dataset (.XPT)
+
+For more details on noncompartmental analysis, see the reference: Gabrielsson J, Weiner D. Pharmacokinetic and Pharmacodynamic Data Analysis - Concepts and Applications. 5th ed. 2016. (ISBN:9198299107)
+
+## How does it work?
+
+```{r}
+library(ncar)
+
+# Theoph and Indometh data: dose in mg, conc in mg/L, time in h
+NCA(Theoph, "Subject", "Time", "conc", Dose=320)
+NCA(Indometh, "Subject", "time", "conc", Dose=25, AdmMode="Bolus")
+
+iAUC = data.frame(Name=c("AUC[0-12h]","AUC[0-24h]"), Start=c(0,0), End=c(12,24)) ; iAUC
+NCA(Theoph, "Subject", "Time", "conc", Dose=320, iAUC=iAUC)
+NCA(Indometh, "Subject", "time", "conc", Dose=25, AdmMode="Bolus", iAUC=iAUC)
+```
+
+```{r}
+NCA(Theoph, "Subject", "Time", "conc", Dose=320, Report="Text")
+```
+
+# Comparison of Noncompartmental analysis software
+
+## In this chapter
+
+We will briefly compare NCA softwares.
+
+## Certara Phoenix WinNonLin
+
+<https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/>
+
+### Pros
+
+- Validated for several years
+- Industry standard
+- Versatile unit setting
+- Easy using by GUI 
+- Generating plots supported
+
+### Cons
+
+- Expansive (~several thousand dollars)
+- Not suitable for reproducible research
+- CDISC SDTM not compatible (input and output)
+
+## R package: PKNCA
+
+<https://github.com/billdenney/pknca>
+
+### Pros
+
+- Open source and free of charge
+- CDISC SDTM semi compatible (output)
+- Calculate partial(interval) AUC with 'linear' or 'log' interpolation method but in a cumbersome way
+
+### Cons
+ 
+- CDISC SDTM not compatible (input)
+- More tests required
+- Experience with R language required
+- Generating plots not supported for now (To be supported soon)
+
+
+## R package: ncar
+
+Extension of NonCompart for CDISC input
+
+<https://github.com/asancpt/ncar>
+
+### Pros
+
+- Open source and free of charge
+- CDISC SDTM fully compatible (input - DM, EX, PC)
+- Output of CDISC SDTM PP domain terms 
+- Calculate partial(interval) AUC with 'linear' or 'log' interpolation method
+
+### Cons
+
+- More tests required
+- Experience with R language required
+- Generating plots not supported for now (To be supported soon)
+
+## R package: ncappc
+
+NCA Calculation and Population PK Model Diagnosis [@Acharya201683]
+
+<https://cran.r-project.org/web/packages/ncappc/index.html>
+<https://www.ncbi.nlm.nih.gov/pubmed/27000291>
+
+
+
+```{r}
+#install.packages("ncappc")
+library(ncappc)
+```
+
+
+## Kinetica
+
+## PK module in R
+
+## Scientist
+
+## PKSolver
+
+## R package: PK
+
+Basic Non-Compartmental Pharmacokinetics
+
+<https://cran.r-project.org/web/packages/PK/index.html>
+
+
+```{r}
+#install.packages("PK")
+library(PK)
+```
+
+## Summary
+
+```{r echo = FALSE}
+knitr::kable(read.csv("comparison.csv", check.names = FALSE))
+```
+
+# Details
+
+
+## In this chapter
+
+We will give you details of each software and perform NCA with a dataset `Theoph`. In the end, we will compare C~max~ and AUC~inf~ calculated by each software or package.
+
+## ncar
+
+```{r}
+# install.packages("ncar")
+library(ncar)
+NCA(Theoph, "Subject", "Time", "conc", Dose=320, Method = "Log") %>% select(CMAX, AUCIFO)
+```
+
+## PKNCA
+
+```{r}
+library(PKNCA)
+
+my.conc <- PKNCAconc(as.data.frame(Theoph), conc~Time|Subject)
+d.dose <- unique(datasets::Theoph[datasets::Theoph$Time == 0,
+                                  c("Dose", "Time", "Subject")])
+my.dose <- PKNCAdose(d.dose, Dose~Time|Subject)
+my.data.automatic <- PKNCAdata(my.conc, my.dose)
+my.results.automatic <- pk.nca(my.data.automatic)
+my.results.automatic$result %>% filter(grepl(pattern = "cmax|aucinf", PPTESTCD)) %>% 
+    arrange(PPTESTCD)
+summary(my.results.automatic)
+```
+
+## ncappc
+
+```{r eval = FALSE}
+library(ncappc)
+
+write.csv(Theoph %>% rename(ID = Subject, TIME = Time, DV = conc), 
+          "Theoph.csv", row.names = FALSE)
+ncappc(obsFile="Theoph.csv", psnOut = FALSE, noPlot = TRUE, printOut = TRUE, 
+       method = "linear-log", evid = FALSE)
+Theoph_ncappc <- read.delim("ncaOutput-.tsv", sep = "\t", check.names = FALSE)
+Theoph_ncappc[ , c("Cmax (M.L^-3)", "AUCINF_obs (T*M.L^-3)")]
+```
+
+```{r echo = FALSE}
+Theoph_ncappc <- read.delim("ncaOutput-.tsv", sep = "\t", check.names = FALSE)
+Theoph_ncappc[ , c("Cmax (M.L^-3)", "AUCINF_obs (T*M.L^-3)")]
+```
+
+
+## Summary
+
+`ncar` is good.
