@@ -83,11 +83,12 @@ tabResult <- NonCompart::tblNCA(Data,
                    dose=Input$Dose)
 tabUnit <- tibble(param = attributes(tabResult)[['names']], units = attributes(tabResult)[['units']])
 
-tabResult %>% 
+tab_nca_final <- tabResult %>% 
   as_tibble() %>% 
   gather(param, value, -1) %>% 
-  left_join(tabUnit, by = 'param') %>% 
-  write_csv('result/resultNonCompart.csv')
+  left_join(tabUnit, by = 'param')
+
+write_csv(tab_nca_final, 'result/resultNonCompart.csv')
 
 plot_facet <- ggplot(Data, aes(x=Time, y=conc, group=Subject)) +
   geom_line() +
@@ -96,7 +97,7 @@ plot_facet <- ggplot(Data, aes(x=Time, y=conc, group=Subject)) +
   labs(x = "Time (h)", y = "Concentration (ng/uL)")
 ggsave("result/plot.jpg", plot_facet, width = 8, height = 5, dpi = 300)
 
-knit("plot.Rmd", "plot.md")
+#knit("plot.Rmd", "plot.md")
 knit2html("plot.Rmd", "result/plot.html", options = c("toc", "mathjax"))
 
 # markdownToHTML("plot.md", "result/plot.html", options = c("toc", "mathjax"))

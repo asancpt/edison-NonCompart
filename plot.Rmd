@@ -1,8 +1,12 @@
+# Results
 
+```{r}
+knitr::kable(tab_nca_final)
+```
 
 # Plot
 
-![plot.jpg]
+![](plot.jpg)
 
 # References
 
