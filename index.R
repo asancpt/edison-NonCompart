@@ -11,7 +11,7 @@ library(tidyr)
 library(tibble)
 library(readr)
 library(ggplot2)
-
+library(knitr)
 
 localLibPath <- "./lib"
 if (Sys.info()['sysname'] == 'Linux') { .libPaths(localLibPath) }
@@ -96,7 +96,6 @@ plot_facet <- ggplot(Data, aes(x=Time, y=conc, group=Subject)) +
   labs(x = "Time (h)", y = "Concentration (ng/uL)")
 ggsave("result/plot.jpg", plot_facet, width = 8, height = 5, dpi = 300)
 
-library(knitr)
 knit("plot.Rmd", "plot.md")
 knit2html("plot.Rmd", "result/plot.html", options = c("toc", "mathjax"))
 
