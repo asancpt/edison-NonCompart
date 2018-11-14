@@ -4,12 +4,12 @@
 
 # Library -----------------------------------------------------------------
 
+localLibPath <- "./lib"
+if (Sys.info()['sysname'] == 'Linux') { .libPaths(localLibPath) }
+
 library(dplyr)
 library(tidyr)
 library(tibble)
-
-localLibPath <- "./lib"
-if (Sys.info()['sysname'] == 'Linux') { .libPaths(localLibPath) }
 
 library(NonCompart)
 
