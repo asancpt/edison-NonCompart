@@ -4,12 +4,13 @@
 
 # Library -----------------------------------------------------------------
 
-localLibPath <- "./lib"
-if (Sys.info()['sysname'] == 'Linux') { .libPaths(localLibPath) }
-
 library(dplyr)
 library(tidyr)
 library(tibble)
+library(readr)
+
+localLibPath <- "./lib"
+if (Sys.info()['sysname'] == 'Linux') { .libPaths(localLibPath) }
 
 library(NonCompart)
 
@@ -63,20 +64,23 @@ for (i in 1:nID) {
 
 # Output ------------------------------------------------------------------
 
-write.csv(Data, "result/out.csv", quote=FALSE, row.names=FALSE)
-writeLines(Output, paste0("result/result.oneD"))
-tabResult <- NonCompart::tabNCA(Data, 
+#write.csv(Data, "result/out.csv", quote=FALSE, row.names=FALSE)
+#writeLines(Output, paste0("result/result.oneD"))
+
+write_csv(Data, "result/out.csv")
+write_lines(Output, "result/result.oneD")
+
+tabResult <- NonCompart::tblNCA(Data, 
                    colSubj, 
                    colTime, 
                    colConc, 
                    adm = Input$AdmMode, 
                    down = Input$Log, 
                    dose=Input$Dose)
-tabUnit <- tibble(param = attributes(tabResult)$dimnames[[2]], units = attributes(tabResult)$units)
+tabUnit <- tibble(param = attributes(tabResult)[['names']], units = attributes(tabResult)[['units']])
 
 tabResult %>% 
   as_tibble() %>% 
-  arrange(ID) %>% 
-  gather(param, value, -ID) %>% 
+  gather(param, value, -1) %>% 
   left_join(tabUnit, by = 'param') %>% 
-  write.csv(file = 'result/resultNonCompart.csv')
+  write_csv('result/resultNonCompart.csv')
