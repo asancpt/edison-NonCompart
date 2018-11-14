@@ -1,0 +1,12 @@
+
+
+# Plot
+
+![plot.jpg]
+
+# References
+
+```{r}
+sessionInfo()
+```
+

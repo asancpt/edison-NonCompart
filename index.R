@@ -1,5 +1,7 @@
 #!/SYSTEM/R/3.5.1/bin/Rscript
 
+
+options(bitmapType='cairo')
 #/SYSTEM/R/3.3.2/bin/Rscript
 
 # Library -----------------------------------------------------------------
@@ -8,6 +10,8 @@ library(dplyr)
 library(tidyr)
 library(tibble)
 library(readr)
+library(ggplot2)
+
 
 localLibPath <- "./lib"
 if (Sys.info()['sysname'] == 'Linux') { .libPaths(localLibPath) }
@@ -84,3 +88,19 @@ tabResult %>%
   gather(param, value, -1) %>% 
   left_join(tabUnit, by = 'param') %>% 
   write_csv('result/resultNonCompart.csv')
+
+plot_facet <- ggplot(Data, aes(x=Time, y=conc, group=Subject)) +
+  geom_line() +
+  geom_point() +
+  facet_wrap(. ~ Subject, ncol = 4) +
+  labs(x = "Time (h)", y = "Concentration (ng/uL)")
+ggsave("result/plot.jpg", plot_facet, width = 8, height = 5, dpi = 300)
+
+library(knitr)
+knit("plot.Rmd", "plot.md")
+knit2html("plot.Rmd", "result/plot.html", options = c("toc", "mathjax"))
+
+# markdownToHTML("plot.md", "result/plot.html", options = c("toc", "mathjax"))
+
+# browseURL("result/Report_Appendix.html")
+
