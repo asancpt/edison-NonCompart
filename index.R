@@ -4,13 +4,14 @@
 
 # Library -----------------------------------------------------------------
 
-localLibPath <- "./lib"
-if (Sys.info()['sysname'] == 'Linux') .libPaths(localLibPath)
-
-library(NonCompart)
 library(dplyr)
 library(tidyr)
 library(tibble)
+
+localLibPath <- "./lib"
+if (Sys.info()['sysname'] == 'Linux') { .libPaths(localLibPath) }
+
+library(NonCompart)
 
 if (length(intersect(dir(), "result")) == 0) {
   system("mkdir result")

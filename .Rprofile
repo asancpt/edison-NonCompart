@@ -1,0 +1,2 @@
+.libPaths('./lib')
+print(.libPaths())
