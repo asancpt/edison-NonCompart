@@ -1,10 +1,8 @@
 #!/SYSTEM/R/3.5.1/bin/Rscript
 
-
-options(bitmapType='cairo')
-#/SYSTEM/R/3.3.2/bin/Rscript
-
 # Library -----------------------------------------------------------------
+
+# `simrc` should contain `module load gcc/5.3.0` and `module load R/3.5.1`
 
 library(dplyr)
 library(tidyr)
@@ -18,15 +16,14 @@ if (Sys.info()['sysname'] == 'Linux') { .libPaths(localLibPath) }
 
 library(NonCompart)
 
-if (length(intersect(dir(), "result")) == 0) {
-  system("mkdir result")
-}
+options(bitmapType='cairo')
+if (length(intersect(dir(), "result")) == 0) { system("mkdir result") }
 
 # Argument ----------------------------------------------------------------
 
-Args <- commandArgs(trailingOnly = TRUE) # SKIP THIS LINE IN R if you're testing!
-if (identical(Args, character(0))) Args <- c("-inp", "data-raw/input.deck")
-InputParameter <- Args[2]
+arguments <- commandArgs(trailingOnly = TRUE) 
+if (identical(arguments, character(0))) { arguments <- c("-inp", "data-raw/input.deck") }
+InputParameter <- arguments[2]
 
 # Data Input --------------------------------------------------------------
 
